@@ -277,7 +277,7 @@ class MakeMovie(BaseCommand):
 
                     activations = self.functor([np.array([img])])
                     activations = [np.reshape(img, (1, img.shape[0], img.shape[1], img.shape[2]))] + activations
-                    upscaled_activation = np.ones((3, 6))
+                    upscaled_activation = np.ones((2, 11))
                     for layer in [5, 4, 3, 2, 1]:
                         averaged_activation = np.mean(activations[layer], axis=3).squeeze(axis=0) * upscaled_activation
                         output_shape = (activations[layer - 1].shape[1], activations[layer - 1].shape[2])
